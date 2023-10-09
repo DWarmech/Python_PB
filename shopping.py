@@ -12,6 +12,13 @@ ram_sum = ram_price * ram
 total_sum = gpu_sum + cpu_sum + ram_sum
 
 if gpu > cpu:
-    final_sum = total_sum * 0.15
+    discount = total_sum * 0.15
+    total_sum = total_sum - discount
 
-    print(f"Youhave{остатъченбюджет} levaleft!")
+if budget >= total_sum:
+    final_budget = budget - total_sum
+    print(f"You have {final_budget:.2f} leva left!")
+elif budget < total_sum:
+    final_budget = total_sum - budget
+    print(f"Not enough money! You need {final_budget:.2f} leva more!")
+
